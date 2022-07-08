@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<h1>Global DVD screensaver</h1>
+
+<p>Spend your day watching a bouncing DVD logo with people around the world</p>
+
+<link rel="stylesheet" href="style.css">
+<canvas id="canvas" height="540" width="740"></canvas>
+<br>
+<img id="dvd" src="logo.png" alt="DVD VIDEO">
+<button onclick="calculate">Calc</button>
+
+<script>
+  const canvas = document.querySelector('#canvas');
+  const ctx = canvas.getContext('2d');
+  var x = 2;
+  var y = 1;
+  var utc =  new Date().getTime();
+  var iterations = 0;
+  
+  var logo_width = 170;
+  var logo_height = 75;
+  var reset_iter = 0;
+  
+  var screen_x = 740;
+  var screen_y = 540;
+  
+  var x_speed = 2;
+  var y_speed = 1;
+
+  function main() {
+	x += x_speed;
+	y += y_speed;
+	if(x + logo_width > screen_x || x < 0) {
+		x_speed = 0 - x_speed;
+	}
+	if(y + logo_height > screen_y || y < 0) {
+		y_speed = 0 - y_speed;
+	}
+	iterations++;
+  }
+  main();
+  
+  function calculate() {
+	  while(x_speed != 2 || y_speed != 1 || x!=2 || y!=1) {
+		main();
+		if(iterations > 1000000) {
+			break;
+		}
+	  }
+	  console.log(iterations);
+  }
+  
+  window.onload = function() {
+	calculate();
+	const utcTimestamp = new Date().getTime();
+  }
+
+</script>
+</body>
+</html>

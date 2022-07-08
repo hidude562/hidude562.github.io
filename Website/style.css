@@ -1,0 +1,24 @@
+body {
+  background-color: #EEFFFF;
+}
+
+p {
+  color: #000000;
+  font-family:verdana;
+}
+
+h1 {
+  color: #000000;
+  font-family:"Times New Roman";
+}
+
+h2 {
+  color: #000000;
+  font-family:"Times New Roman";
+}
+
+li {
+  color: 0x112233;
+  font-family:verdana;
+  font-size: 12px;
+}
